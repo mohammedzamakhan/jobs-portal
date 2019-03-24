@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "node local.js",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -11,7 +11,20 @@
     "compile:server": "webpack --config webpack.server.config.js --progress --colors",
     "serve:ssr": "node dist/server",
     "build:ssr": "npm run build:client-and-server-bundles && npm run compile:server",
-    "build:client-and-server-bundles": "ng build --prod && ng run jobs-portal:server:production"
+    "build:client-and-server-bundles": "ng build --prod && ng run jobs-portal:server:production",
+    "now-build": "true",
+    "now": "now deploy --public && now alias"
+  },
+  "now": {
+    "name": "jobs-portal",
+    "alias": [
+      "step-2-jobs-portal.now.sh"
+    ],
+    "files": [
+      "dist",
+      "local.js",
+      "package.json"
+    ]
   },
   "private": true,
   "dependencies": {
