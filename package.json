@@ -18,7 +18,7 @@
   "now": {
     "name": "jobs-portal",
     "alias": [
-      "step-1-jobs-portal.now.sh"
+      "step-2-jobs-portal.now.sh"
     ],
     "files": [
       "dist",
