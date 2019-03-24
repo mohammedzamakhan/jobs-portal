@@ -1,0 +1,22 @@
+<ng-container *ngIf="(job$ | async) as job">
+  <div class="is-size-3">
+    <span class="has-text-grey-light"># {{ job.jobId }}</span>
+    <br />
+    {{ job.title }}
+  </div>
+  <div class="is-size-5 content" *ngIf="job.description">
+    <span class="has-text-grey-light">Description</span>
+    <br />
+    {{ job.description }}
+  </div>
+  <div class="is-size-5 content" *ngIf="job.duties">
+    <span class="has-text-grey-light">Duties</span>
+    <br />
+    <div [innerHTML]="job.duties"></div>
+  </div>
+  <div class="is-size-5 content" *ngIf="job.experience">
+    <span class="has-text-grey-light">Experience</span>
+    <br />
+    <div [innerHTML]="job.experience"></div>
+  </div>
+</ng-container>
