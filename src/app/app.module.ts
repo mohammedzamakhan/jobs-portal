@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TransferStateInterceptor } from './transfer-state.interceptor';
+import { BrowserJsonLdModule } from 'ngx-seo';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { TransferStateInterceptor } from './transfer-state.interceptor';
     AppRoutingModule,
     HttpClientModule,
     BrowserTransferStateModule,
+    BrowserJsonLdModule,
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
