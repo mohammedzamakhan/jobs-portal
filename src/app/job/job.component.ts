@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { JobsService } from '../jobs.service';
 import { tap } from 'rxjs/operators';
-import { Title, Meta } from '@angular/platform-browser';
+import { SeoSocialShareService } from 'ngx-seo';
 
 @Component({
   selector: 'app-job',
@@ -15,8 +15,7 @@ export class JobComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private jobsService: JobsService,
-    private title: Title,
-    private meta: Meta
+    private seoService: SeoSocialShareService,
   ) { }
 
   ngOnInit() {
@@ -24,11 +23,12 @@ export class JobComponent implements OnInit {
       this.job$ = this.jobsService.getOne(params.id)
         .pipe(
           tap((job: any) => {
-            this.title.setTitle(`${job.title} - Dallas Jobs Portal`);
-            this.meta.removeTag('name="description"');
-            this.meta.addTag({
-              name: 'description',
-              content: job.description,
+            this.seoService.setData({
+              title: `${job.title} - Dallas Jobs Portal`,
+              description: job.description,
+              published: job.created_at,
+              author: 'Dallas Jobs Portal',
+              type: 'website',
             });
           })
         );

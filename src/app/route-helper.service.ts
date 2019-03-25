@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Meta,
-  Title } from '@angular/platform-browser';
+import { SeoSocialShareService } from 'ngx-seo';
 import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 import { filter, map } from 'rxjs/operators';
 
@@ -10,8 +9,7 @@ import { filter, map } from 'rxjs/operators';
 export class RouteHelperService {
 
   constructor(
-    private meta: Meta,
-    private title: Title,
+    private seoService: SeoSocialShareService,
     private router: Router,
     private activatedRoute: ActivatedRoute
   ) {
@@ -29,11 +27,13 @@ export class RouteHelperService {
       )
       .subscribe(activeRoute => {
         const seo = activeRoute.snapshot.data.seo;
-        this.title.setTitle(seo.title);
-        this.meta.removeTag('name="description"');
-        this.meta.addTag({
-          name: 'description',
-          content: seo.description,
+        this.seoService.setData({
+          title: seo.title,
+          description: seo.description,
+          author: 'Dallas Jobs Portal',
+          type: 'website',
+          image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Dallas_bridge_skyline.jpg/250px-Dallas_bridge_skyline.jpg',
+          url: 'https://step-6-jobs-portal.now.sh' + this.router.routerState.snapshot.url,
         });
       });
   }
