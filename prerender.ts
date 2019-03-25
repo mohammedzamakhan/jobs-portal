@@ -21,7 +21,7 @@ const ROUTES = [
 axios.get('https://demo4776583.mockable.io/jobs')
   .then(resp => {
     resp.data.forEach(job => {
-      ROUTES.push(`/job/${job.jobId}`);
+      ROUTES.push(`/job/${job.slug}/${job.jobId}`);
     });
     main();
   });
