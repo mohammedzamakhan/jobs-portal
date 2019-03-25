@@ -1,9 +1,8 @@
-<div
+<a
   *ngFor="let job of jobs; trackBy:trackByFunction"
   [routerLink]="['/job', job.slug, job.jobId]"
-  class="is-size-5"
+  class="is-size-5 no-style"
 >
   <span class="has-text-grey-light"># {{job.jobId}}</span>
-  <br>
-  {{job.title}}
-</div>
+  <h2>{{job.title}}</h2>
+</a>

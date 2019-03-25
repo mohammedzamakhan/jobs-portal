@@ -2,24 +2,21 @@
   <div class="is-size-3">
     <span class="has-text-grey-light"># {{ job.jobId }}</span>
     <br />
-    {{ job.title }}
+    <h2>{{ job.title }}</h2>
   </div>
   <button class="button is-primary" [ngClass]="{'is-primary': !applied, 'is-danger': applied}" (click)="toggleApplied()">
     {{ applied ? 'Applied': 'Apply Now'}}
   </button>
-  <div class="is-size-5 content" *ngIf="job.description">
-    <span class="has-text-grey-light">Description</span>
-    <br />
-    {{ job.description }}
+  <div class="is-size-5 " *ngIf="job.description">
+    <h3 class="has-text-grey-light">Description</h3>
+    <p>{{ job.description }}</p>
   </div>
-  <div class="is-size-5 content" *ngIf="job.duties">
-    <span class="has-text-grey-light">Duties</span>
-    <br />
-    <div [innerHTML]="job.duties"></div>
+  <div class="is-size-5 " *ngIf="job.duties">
+    <h3 class="has-text-grey-light">Duties</h3>
+    <p class="content" [innerHTML]="job.duties"></p>
   </div>
-  <div class="is-size-5 content" *ngIf="job.experience">
-    <span class="has-text-grey-light">Experience</span>
-    <br />
-    <div [innerHTML]="job.experience"></div>
+  <div class="is-size-5 " *ngIf="job.experience">
+    <h3 class="has-text-grey-light">Experience</h3>
+    <p class="content" [innerHTML]="job.experience"></p>
   </div>
 </ng-container>
