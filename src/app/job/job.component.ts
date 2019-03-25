@@ -9,12 +9,17 @@ import { JobsService } from '../jobs.service';
 })
 export class JobComponent implements OnInit {
   job$;
+  applied: boolean;
   constructor(private route: ActivatedRoute, private jobsService: JobsService) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.job$ = this.jobsService.getOne(params.id);
     });
+  }
+
+  toggleApplied() {
+    this.applied = !this.applied;
   }
 
 }

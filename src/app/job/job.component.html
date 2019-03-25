@@ -4,6 +4,9 @@
     <br />
     {{ job.title }}
   </div>
+  <button class="button is-primary" [ngClass]="{'is-primary': !applied, 'is-danger': applied}" (click)="toggleApplied()">
+    {{ applied ? 'Applied': 'Apply Now'}}
+  </button>
   <div class="is-size-5 content" *ngIf="job.description">
     <span class="has-text-grey-light">Description</span>
     <br />
