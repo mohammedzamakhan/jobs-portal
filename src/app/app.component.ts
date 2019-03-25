@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { RouteHelperService } from './route-helper.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'jobs-portal';
+
+  constructor(private routeHelper: RouteHelperService) {
+
+  }
 }
