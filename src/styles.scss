@@ -4,3 +4,13 @@
 @import "~bulma/sass/elements/button.sass";
 @import "~bulma/sass/elements/container.sass";
 @import "~bulma/sass/elements/content.sass";
+
+a.no-style:link {
+  text-decoration: inherit;
+  color: inherit;
+}
+
+a.no-style:visited {
+  text-decoration: inherit;
+  color: inherit;
+}
