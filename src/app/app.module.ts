@@ -1,5 +1,6 @@
 import { BrowserModule, BrowserTransferStateModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { PrebootModule } from 'preboot';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,6 +13,7 @@ import { TransferStateInterceptor } from './transfer-state.interceptor';
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
+    PrebootModule.withConfig({appRoot: 'app-root'}),
     AppRoutingModule,
     HttpClientModule,
     BrowserTransferStateModule,
