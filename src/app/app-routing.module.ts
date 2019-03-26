@@ -10,7 +10,6 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forRoot(routes, {
     initialNavigation: 'enabled',
-    useHash: true,
   })],
   exports: [RouterModule]
 })
